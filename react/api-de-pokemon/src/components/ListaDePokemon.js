@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { fetchPokemon } from "../actions/fetchPokemon";
+import fetchData from "../actions/axiosPokemon";
+// import fetchData from "../actions/fetchPokemon";
 
 const ListaDePokemon = () => {
   const [lista, setLista] = useState([]);
 
   useEffect(() => {
-    fetchPokemon().then((ls) => setLista(ls));
+    fetchData().then((ls) => setLista(ls));
   }, []);
 
   const elementoDeLista = lista.map((poke, index) => (
@@ -15,7 +16,7 @@ const ListaDePokemon = () => {
   const contenido = lista.length ? elementoDeLista : "...";
 
   const onClick = async () => {
-    const ls = await fetchPokemon();
+    const ls = await fetchData();
     setLista(ls);
   };
 
