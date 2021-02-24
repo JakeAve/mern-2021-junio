@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import fetchData from "../actions/axiosPokemon";
-// import fetchData from "../actions/fetchPokemon";
+// import fetchData from "../actions/axiosPokemon";
+import fetchData from "../actions/fetchPokemon";
 
 const ListaDePokemon = () => {
   const [lista, setLista] = useState([]);
