@@ -29,7 +29,7 @@ const juan = User("Juan", "juan@juan.cl", 22);
 
 juan.cumplir();
 
-for (let i = 0; i < 9999999999; i++) {
+for (let i = 0; i < 999; i++) {
   juan.cumplir();
 }
 

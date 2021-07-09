@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/bono-de-ninja.js" defer></script>
+    <title>Batalla de Ninjas</title>
+    <style>
+      .container {
+        display: grid;
+        gap: 1rem;
+        place-content: center;
+      }
+
+      .card {
+        display: grid;
+        gap: 1rem;
+        width: 128px;
+        border: 5px solid grey;
+      }
+
+      .foto {
+        height: 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="juego">
+      <template id="carta"
+        ><div class="card">
+          <div class="foto">
+            <img src="https://picsum.photos/128/64" />
+          </div>
+          <div class="info">
+            <div class="nombre"></div>
+            <div class="costo"></div>
+            <div class="poder"></div>
+            <div class="resiliencia"></div>
+          </div></div
+      ></template>
+    </div>
+  </body>
+</html>
