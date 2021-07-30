@@ -1,0 +1,75 @@
+:root {
+  --spacing: 24px;
+}
+
+.view-wrapper,
+.view-wrapper * {
+  border: 3px solid black;
+}
+
+.view-wrapper {
+  background-color: #dddddd;
+  display: grid;
+  grid-template: 125px auto / repeat(4, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "nav main main main";
+  gap: var(--spacing);
+  padding: var(--spacing);
+  margin: var(--spacing);
+  /* trampas */
+  height: 95vh;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #6aa84f;
+  grid-area: header;
+}
+
+nav {
+  background-color: #6fa8dc;
+  grid-area: nav;
+  height: 75%;
+  align-self: flex-start;
+  padding: 1rem;
+}
+
+nav a {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  background-color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  border: none !important;
+}
+
+nav ul li {
+  border: none !important;
+  display: block;
+}
+
+main {
+  background-color: #e06666;
+  grid-area: main;
+  display: grid;
+  grid-template: auto 90px / repeat(3, 1fr);
+  gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+.subcontent {
+  background-color: #ffd966;
+}
+
+.advertisement {
+  background-color: #b4a7d6;
+  grid-column: 1 / 4;
+}
