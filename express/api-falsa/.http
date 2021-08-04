@@ -1,0 +1,18 @@
+### GET Nuevo Usuario
+
+GET http://localhost:5000/api/users/new
+
+### POST Nuevo Usuario
+
+POST http://localhost:5000/api/users/create
+Content-Type: application/json
+
+{"name": "Enrique", "apellido": "Iglesias"}
+
+### GET Nueva Empresa
+
+GET http://localhost:5000/api/companies/new
+
+### GET Nueva Empresa con Usuario
+
+GET http://localhost:5000/api/user/company
