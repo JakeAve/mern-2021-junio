@@ -1,0 +1,32 @@
+### Nueva Broma
+
+POST http://localhost:5000/api/jokes/new
+Content-Type: application/json
+
+{
+    "setup": "Another broma",
+    "punchline": "jaja jeje"
+}
+
+### Todas las bromas
+
+GET http://localhost:5000/api/jokes
+
+### Buscar Broma por ID
+
+GET http://localhost:5000/api/jokes/610c906bc6cf6735fc41d2c8
+
+### Editar Broma
+
+PUT http://localhost:5000/api/jokes/update/610c906bc6cf6735fc41d2c8
+Content-Type: application/json
+
+{
+    "setup": "Broma editada espera",
+    "punchline": "jaja jeje"
+}
+
+
+### Borrar Broma por ID
+
+DELETE http://localhost:5000/api/jokes/delete/610c906bc6cf6735fc41d2c8
