@@ -4,13 +4,17 @@ POST http://localhost:5000/api/jokes/new
 Content-Type: application/json
 
 {
-    "setup": "Another broma",
-    "punchline": "jaja jeje"
+    "setup": "Broma 6",
+    "punchline": "más chistosa"
 }
 
 ### Todas las bromas
 
 GET http://localhost:5000/api/jokes
+
+### Random Broma
+
+GET http://localhost:5000/api/jokes/random
 
 ### Buscar Broma por ID
 
