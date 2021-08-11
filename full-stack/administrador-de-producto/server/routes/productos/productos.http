@@ -1,0 +1,18 @@
+### Prueba
+
+GET http://localhost:5000/api/producto/test
+
+### Nuevo Producto
+
+POST http://localhost:5000/api/producto/nuevo
+Content-Type: application/json
+
+{
+    "título": "Iphone",
+    "precio": 10,
+    "descripción": "El celular más mejor y santisima de la gente que adora a la santisima manzana"
+}
+
+### Todos los Productos
+
+GET http://localhost:5000/api/producto

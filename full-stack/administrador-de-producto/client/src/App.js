@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./normalize.css";
 import "./App.css";
+import FormularioDeNuevoProducto from "./componente/FormularioDeNuevoProducto";
+import ListaDeProductos from "./componente/ListaDeProductos";
 
 const App = () => {
-  const [msg, setMsg] = useState();
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((js) => setMsg(js));
-  }, []);
   return (
     <>
-      <h2>
-        Mensaje del backend: <code>{JSON.stringify(msg)}</code>
-      </h2>
+      <h1>Administrador de Productos</h1>
+      <FormularioDeNuevoProducto />
+      <ListaDeProductos />
     </>
   );
 };
