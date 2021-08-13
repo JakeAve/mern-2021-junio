@@ -16,3 +16,22 @@ Content-Type: application/json
 ### Todos los Productos
 
 GET http://localhost:5000/api/producto
+
+### Producto por ID
+
+GET http://localhost:5000/api/producto/61132077e424d082bb36f09f
+
+### Editar Producto por Id
+
+PUT http://localhost:5000/api/producto/61132077e424d082bb36f09f
+Content-Type: application/json
+
+{
+    "título": "Editado",
+    "precio": 99,
+    "descripción": "El celular más mejor y santisima de la gente que adora a la santisima manzana"
+}
+
+### Eliminar Producto por ID
+
+DELETE http://localhost:5000/api/producto/61132077e424d082bb36f09f

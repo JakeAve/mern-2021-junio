@@ -4,6 +4,10 @@ const nuevoProducto = async (req, res) => {
   try {
     const { título, precio, descripción } = req.body;
 
+    const existiente = await ProductoModel.findOne({ título });
+
+    if (existiente) throw new Error("Este producto ya existe");
+
     const doc = await ProductoModel.create({ título, precio, descripción });
 
     res.status(201).json(doc);

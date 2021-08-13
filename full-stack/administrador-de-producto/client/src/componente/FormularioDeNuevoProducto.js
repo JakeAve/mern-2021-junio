@@ -1,7 +1,8 @@
 import React from "react";
 import crearNuevoProducto from "../actions/crearNuevoProducto";
 
-const FormularioDeNuevoProducto = () => {
+const FormularioDeNuevoProducto = (props) => {
+  const { onIngresar } = props;
   const onSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,6 +18,7 @@ const FormularioDeNuevoProducto = () => {
         .querySelectorAll(`input:not([type="submit"])`)
         .forEach((input) => (input.value = ""));
       window.alert("Se ingresó el producto exitosamente");
+      onIngresar();
     } else {
       window.alert(`No se ingresó. ${message}`);
     }
