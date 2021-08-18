@@ -2,13 +2,15 @@ const { ProductoModel } = require("../models/Producto");
 
 const nuevoProducto = async (req, res) => {
   try {
-    const { título, precio, descripción } = req.body;
+    const { título, precio, descripción, colores } = req.body;
 
-    const existiente = await ProductoModel.findOne({ título });
-
-    if (existiente) throw new Error("Este producto ya existe");
-
-    const doc = await ProductoModel.create({ título, precio, descripción });
+    const doc = await ProductoModel.create({
+      título,
+      precio,
+      descripción,
+      colores: colores.filter(Boolean),
+      inventario: 1000,
+    });
 
     res.status(201).json(doc);
   } catch (e) {

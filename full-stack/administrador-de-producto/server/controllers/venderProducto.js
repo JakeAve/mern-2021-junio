@@ -1,18 +1,14 @@
 const { ProductoModel } = require("../models/Producto");
 
-const editarProducto = async (req, res) => {
+const venderProducto = async (req, res) => {
   try {
     const { productoID } = req.params;
-    const { título, precio, descripción, colores } = req.body;
 
-    const doc = await ProductoModel.findByIdAndUpdate(productoID, {
-      título,
-      precio,
-      descripción,
-      colores,
-    });
-
+    const doc = await ProductoModel.findById(productoID);
     if (!doc) return res.status(404).json({ message: "No se pudó encontrar" });
+
+    doc.inventario = doc.inventario - 1;
+    await doc.save();
 
     res.json(doc);
   } catch (e) {
@@ -21,4 +17,4 @@ const editarProducto = async (req, res) => {
   }
 };
 
-module.exports = editarProducto;
+module.exports = venderProducto;

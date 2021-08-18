@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import eliminarProducto from "../actions/eliminarProducto";
 import fetchProductos from "../actions/fetchProductos";
+import EliminarBoton from "./EliminarBoton";
 
 const ListaDeProductos = (props) => {
   const { ingresarNuevoProducto, onActualizar } = props;
@@ -19,15 +19,7 @@ const ListaDeProductos = (props) => {
           <li key={_id}>
             <Link to={`/${_id}`}>{título}</Link>
             <Link to={`/${_id}/editar`}>Editar</Link>
-            <button
-              className="eliminar"
-              onClick={async () => {
-                await eliminarProducto(_id);
-                onActualizar();
-              }}
-            >
-              Eliminar
-            </button>
+            <EliminarBoton _id={_id} onSuccess={onActualizar} />
           </li>
         ));
       setLista(elementos);

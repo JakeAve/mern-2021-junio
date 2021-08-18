@@ -12,6 +12,17 @@ code {
     monospace;
 }
 
+nav {
+  background-color: gainsboro;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 h1 {
   text-align: center;
 }
@@ -83,7 +94,7 @@ hr {
   color: white;
 }
 
-.btn-grande {
+.btn-center {
   display: block;
   margin: 3rem auto;
 }

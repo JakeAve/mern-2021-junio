@@ -1,17 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./normalize.css";
 import "./App.css";
 import Producto from "./componente/Producto";
 import EditarProducto from "./componente/EditarProducto";
 import Home from "./views/Home";
+import Nav from "./componente/Nav";
 
 const App = () => {
   return (
     <Router>
-      <Link to="/" className="home-link">
-        Home
-      </Link>
+      <Nav />
       <Switch>
         <Route path="/" exact>
           <Home />

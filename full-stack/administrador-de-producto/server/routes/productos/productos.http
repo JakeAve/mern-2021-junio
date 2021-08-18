@@ -8,9 +8,10 @@ POST http://localhost:5000/api/producto/nuevo
 Content-Type: application/json
 
 {
-    "título": "Iphone",
+    "título": "Iphone 15",
     "precio": 10,
-    "descripción": "El celular más mejor y santisima de la gente que adora a la santisima manzana"
+    "descripción": "El celular más mejor y santisima de la gente que adora a la santisima manzana",
+    "colores": ["", "", "black"]
 }
 
 ### Todos los Productos
@@ -31,6 +32,10 @@ Content-Type: application/json
     "precio": 99,
     "descripción": "El celular más mejor y santisima de la gente que adora a la santisima manzana"
 }
+
+### Vender un Producto
+
+PUT http://localhost:5000/api/producto/vender/611c643cb125d7ea93c0fe34
 
 ### Eliminar Producto por ID
 

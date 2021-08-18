@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import editarProducto from "../actions/editarProducto";
-import eliminarProducto from "../actions/eliminarProducto";
 import fetchProductoPorId from "../actions/fetchProductoPorId";
+import EliminarBoton from "./EliminarBoton";
+import FormularioDeProducto from "./FormularioDeProducto";
 
 const EditarProducto = () => {
   const [productoProps, setProductoProps] = useState(null);
@@ -18,13 +19,7 @@ const EditarProducto = () => {
     });
   }, [productoID]);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const obj = {};
-    for (const [campo, val] of formData.entries()) obj[campo] = val;
-
+  const handleSubmit = async (obj, form) => {
     const { success, message } = await editarProducto(productoID, obj);
 
     console.log({ success });
@@ -39,8 +34,7 @@ const EditarProducto = () => {
     }
   };
 
-  const eliminar = async () => {
-    await eliminarProducto(productoID);
+  const onDelete = () => {
     window.alert(`Se eliminó el producto exitosamente`);
     history.push("/");
   };
@@ -50,33 +44,14 @@ const EditarProducto = () => {
 
   return (
     <div>
-      <form className="formulario-de-nuevo-producto" onSubmit={onSubmit}>
-        <label htmlFor="título">Título</label>
-        <input
-          type="text"
-          id="título"
-          name="título"
-          defaultValue={productoProps.título}
-        />
-        <label htmlFor="precio">Precio</label>
-        <input
-          type="number"
-          id="precio"
-          name="precio"
-          defaultValue={productoProps.precio}
-        />
-        <label htmlFor="descripción">Descripción</label>
-        <input
-          type="text"
-          id="descripción"
-          name="descripción"
-          defaultValue={productoProps.descripción}
-        />
-        <input type="submit" value="Editar" />
-      </form>
-      <button className="eliminar btn-grande" onClick={eliminar}>
+      <FormularioDeProducto
+        onSubmit={handleSubmit}
+        defaultValues={productoProps}
+        textoDeBotón="Guardar Cambios"
+      />
+      <EliminarBoton _id={productoID} onSuccess={onDelete} esCenter>
         Eliminar Producto
-      </button>
+      </EliminarBoton>
     </div>
   );
 };

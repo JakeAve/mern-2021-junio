@@ -4,6 +4,7 @@ const ProductoSchema = new mongoose.Schema({
   título: {
     type: String,
     required: [true, "El producto necesita un título"],
+    unique: true,
     maxLength: [
       120,
       "El título de producto sólo puede tener hasta 120 caracateres, se ingresó {VALUE}",
@@ -29,6 +30,15 @@ const ProductoSchema = new mongoose.Schema({
       25,
       "La descripción de producto debe tener por lo menos 25 caracateres, se ingresó {VALUE}",
     ],
+  },
+  colores: [
+    {
+      type: String,
+    },
+  ],
+  inventario: {
+    type: Number,
+    min: [0, "No puedes tener menos que 0"],
   },
 });
 
