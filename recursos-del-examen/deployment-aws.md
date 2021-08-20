@@ -25,10 +25,15 @@ git branch -M main
 git push -u origin main
 ```
 
+- Debes ver todo en github está subido
+- Ir a "Settings" y a "Developer Settings" y a "Personal Access Tokens"
+- Crear un nuevo access token, dando poder para hacer todo con repositorios privados https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
+- Copiar el nuevo Personal Access Token, y guardarlo en algún lugar seguro para el examen
+
 ## EC2
 
 - [ ] https://console.aws.amazon.com/?nc2=h_m_mc
-- [ ] Ir a "Launch a virtual machine"
+- [ ] Ir a "Launch a virtual machine (EC2)"
 - [ ] Seleccionar a "Ubuntu Server 20.04 LTS (HVM), SSD Volume Type"
 - [ ] Seleccionar "Free tier eligible"
 - [ ] Ir arriba al paso "6. Configure Security Group"
@@ -84,7 +89,9 @@ nvm install node
 # Copiar y Probar Proyecto en Servidor
 
 - [ ] `git clone tu-url-de-github` (Es posible que tengas que entrar tu login)
-- [ ] `cd tu-proyecto`
+- [ ] Entrar tu usuario
+- [ ] Entrar tu Personal Access Token de arriba
+- [ ] `cd tu-proyecto/server`
 - [ ] Crear el archivo de .env.
 
 ```
