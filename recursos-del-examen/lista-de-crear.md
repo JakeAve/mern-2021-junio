@@ -1,5 +1,15 @@
 # Lista
 
+## Gitignore
+
+Crear archivo de `.gitignore`
+
+```
+node_modules
+.env
+.DS_Store
+```
+
 ## Server
 
 En un terminal en el root de todo el proyecto
@@ -114,6 +124,7 @@ npx create-react-app client
 cd client
 rm -rf src
 mkdir src
+npm i react-router-dom
 ```
 
 Crear index.js

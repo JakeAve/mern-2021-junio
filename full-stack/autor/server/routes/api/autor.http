@@ -1,0 +1,21 @@
+### Crear Autor
+POST http://localhost:5000/api/autor
+Content-Type: application/json
+
+{
+    "nombre": "Francisco de Quevedo"
+}
+
+### GET Autores
+GET http://localhost:5000/api/autor
+
+### Editar Autor
+PUT  http://localhost:5000/api/autor/611f06c9acb4706c69e94657
+Content-Type: application/json
+
+{
+    "nombre": "Miguel de Cervantes"
+}
+
+### Eliminar Autor
+DELETE   http://localhost:5000/api/autor/611f0903a7461a6dc176542e
