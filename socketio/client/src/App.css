@@ -1,0 +1,24 @@
+.mensaje {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  display: grid;
+  align-items: center;
+  align-content: flex-start;
+  justify-items: flex-start;
+  max-width: 50%;
+  overflow: auto;
+  gap: 0.5rem;
+  background-color: dodgerblue;
+  border-radius: 16px;
+}
+
+.propio {
+  background-color: rgb(15, 69, 123);
+  color: white;
+}
+
+.hora,
+.nombre {
+  font-size: 0.8rem;
+  margin: 0;
+}
