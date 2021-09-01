@@ -10,8 +10,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-// import registerUser from "../actions/registerUser";
+import registerUser from "../actions/registerUser";
 import { useHistory } from "react-router";
+import { useUser } from "../providers/UserProvider";
 // import { useAlert } from "../contexts/alerts";
 
 function Copyright() {
@@ -56,15 +57,21 @@ export default function SignUp() {
   const classes = useStyles();
   const [formErrors, setFormErrors] = useState(noErrors);
   //   const alert = useAlert();
-  const history = useHistory();
+  const { login } = useUser();
 
   const onSubmit = async (e) => {
-    // e.preventDefault();
-    // const form = e.target.closest("form");
-    // const formData = new FormData(form);
-    // const payload = {};
-    // for (const [field, value] of formData) payload[field] = value;
-    // const { success, data } = await registerUser(payload);
+    e.preventDefault();
+    const form = e.target.closest("form");
+    const formData = new FormData(form);
+    const payload = {};
+    for (const [field, value] of formData) payload[field] = value;
+    const { success, data } = await registerUser(payload);
+
+    if (success) {
+      login(data);
+    } else {
+      window.alert("error, registration failed");
+    }
     // if (success) {
     //   alert("success", "User Added!", 3000);
     //   history.push("/");

@@ -1,13 +1,13 @@
 const { addTokenToRes } = require("../jwt");
 const { UserModel } = require("../models/User");
 const bcrypt = require("bcrypt");
+const transformUserForClient = require("../helper/transformUserForClient");
 
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const user = await UserModel.findOne({ email }).exec();
-    console.log({ user });
 
     if (!user) throw new Error("Could not login");
 
@@ -18,7 +18,7 @@ const login = async (req, res) => {
 
     addTokenToRes(res, user);
 
-    res.json({ email, id: user._id });
+    res.json(transformUserForClient(user));
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: e.message });

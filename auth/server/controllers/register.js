@@ -1,3 +1,4 @@
+const transformUserForClient = require("../helper/transformUserForClient");
 const { signToken, jwtCookieKey, addTokenToRes } = require("../jwt");
 const { UserModel } = require("../models/User");
 
@@ -17,7 +18,7 @@ const registerUser = async (req, res) => {
 
     addTokenToRes(res, user);
 
-    res.json({ email, id: user._id });
+    res.json(transformUserForClient(user));
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: e.message });

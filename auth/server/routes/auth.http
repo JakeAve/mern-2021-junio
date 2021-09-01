@@ -9,7 +9,7 @@ Content-Type: application/json
 {
     "firstName": "Juan",
     "lastName": "Sanchez",
-    "email": "juan6@gmail.com",
+    "email": "juan99@gmail.com",
     "password": "12345678",
     "confirmPassword": "12345678"
 }

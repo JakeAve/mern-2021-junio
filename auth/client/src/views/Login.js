@@ -12,9 +12,10 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-// import { useAlert } from "../contexts/alerts";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import loginUser from "../actions/loginUser";
+import { useUser } from "../providers/UserProvider";
+import { useAlert } from "../providers/AlertsProvider";
 // import getUserInfo from "../actions/getUserInfo";
 // import { useUser } from "../contexts/user";
 
@@ -63,9 +64,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  //   const alert = useAlert();
-  const history = useHistory();
-  //   const { setUser, setAccessToken } = useUser();
+  const alert = useAlert();
+  const { login } = useUser();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -75,16 +75,10 @@ export default function SignInSide() {
     for (const [field, value] of formData) payload[field] = value;
     const { success, data } = await loginUser(payload);
     if (success) {
-      //   setAccessToken(data.accessToken);
-      //   const { success: userSuccess, data: userData } = await getUserInfo(
-      //     data.accessToken
-      //   );
-      //   if (userSuccess) {
-      //     // setUser(userData);
-      //     alert("success", "Welcome", 3000);
-      //     history.push("/");
-      //   } else alert("error", "Login failed");
+      alert("success", `Welcome, ${data.firstName}`);
+      login(data);
     } else {
+      // window.alert("error, login failed");
       alert("error", "Login failed");
     }
   };
