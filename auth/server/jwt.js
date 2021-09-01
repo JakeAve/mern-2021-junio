@@ -15,11 +15,7 @@ const addTokenToRes = (res, user) =>
 
 const authorize = async (req, res, next) => {
   try {
-    const verified = await jwt.verify(
-      req.cookies[jwtCookieKey],
-      process.env.JWT_SECRET
-    );
-    console.log({ verified });
+    const verified = await verifyTokenFromCookie(req);
     if (!verified) return res.status(401).json({ message: "Unauthorized" });
     // update token
     addTokenToRes(res, verified);
@@ -30,4 +26,14 @@ const authorize = async (req, res, next) => {
   }
 };
 
-module.exports = { signToken, jwtCookieKey, addTokenToRes, authorize };
+const verifyTokenFromCookie = (req) => {
+  return jwt.verify(req.cookies[jwtCookieKey], process.env.JWT_SECRET);
+};
+
+module.exports = {
+  signToken,
+  verifyTokenFromCookie,
+  jwtCookieKey,
+  addTokenToRes,
+  authorize,
+};

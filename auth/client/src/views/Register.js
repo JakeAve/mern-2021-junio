@@ -11,7 +11,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import registerUser from "../actions/registerUser";
-import { useHistory } from "react-router";
 import { useUser } from "../providers/UserProvider";
 // import { useAlert } from "../contexts/alerts";
 
